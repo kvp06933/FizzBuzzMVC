@@ -1,0 +1,39 @@
+﻿@model FizzBuzzMVC.Models.FizzBuzz
+
+
+<div class="container">
+    <h1>FizzBuzz MVC</h1>
+    <form asp-controller="FizzBuzzMVC" asp-action="Index" method="post">
+        <div class="form-group">
+            <label asp-for="FizzValue" class="col-form-label">Start Value</label>
+            <input type="number" asp-for="FizzValue" value="@Model.FizzValue" class="form-control" placeholder="Enter Start Value" />
+        </div>
+        <div class="form-group">
+            <label asp-for="BuzzValue" class="col-form-label">End Value</label>
+            <input type="number" asp-for="BuzzValue" value="@Model.BuzzValue" class="form-control" placeholder="Enter End Value" />
+        </div>
+
+        <button class="btn btn-danger" type="submit" value="submit">FizzBuzz</button>
+    </form>
+
+    <table class="table table-dark table-hover">
+        <thead>
+            <tr>
+                <th colspan="5">FizzBuzz Results</th>
+            </tr>
+        </thead>
+        <tbody id="resultsID">
+            @for (int i = 0; i < Model.Results.Count(); i += 5)
+            {
+        <tr>
+            <td class="@Model.Results[i]">@Model.Results[i]</td>
+            <td class="@Model.Results[i+1]">@Model.Results[i + 1]</td>
+            <td class="@Model.Results[i+2]">@Model.Results[i + 2]</td>
+            <td class="@Model.Results[i+3]">@Model.Results[i + 3]</td>
+            <td class="@Model.Results[i+4]">@Model.Results[i + 4]</td>
+
+        </tr>}
+        </tbody>
+
+    </table>
+</div>
